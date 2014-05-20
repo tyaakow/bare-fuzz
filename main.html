@@ -13,9 +13,10 @@
 		<script src="cordova.js"></script>
 		<script src="cdv-plugin-fb-connect.js"></script>
 		<script src="facebook-js-sdk.js"></script>
+		<script src="zepto.min.js"></script>
         
 		<script>
-    // Code here
+(function(){
 
             if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) console.log('Cordova variable does not exist. Check that you have included cordova.js correctly');
             if (typeof CDV == 'undefined') console.log('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
@@ -88,10 +89,10 @@
                          if (response.session) {
                          console.log('logged in');
                          console.log(JSON.stringify(response));
-                         document.getElementById("log").innerHTML = JSON.stringify(response);
+                         $("#log").html("<p>" + response + "</p>");
                          } else {
                          console.log(JSON.stringify(response));   
-                         document.getElementById("log").innerHTML = JSON.stringify(response);                     
+                         $("#log").html("<p>" + response + "</p>");                     
                          console.log('Not logged in');
                          }
                          },
@@ -108,10 +109,11 @@
                                       console.log(e);
                                       }
                                       }, false);
-         
+ 
+})();        
             </script>
         <div id="log" style="width:90%; height:100px; background:#ccc;"></div>
-    <script src="http://10.80.143.100:8080/target/target-script-min.js#anonymous"></script>
+    <script src="zepto.min.js"></script>
 
 	</body>
 </html>
