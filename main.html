@@ -89,10 +89,10 @@
                          if (response.session) {
                          console.log('logged in');
                          console.log(JSON.stringify(response));
-                         $("#log").html("<p>" + response + "</p>");
+                         $("#log").html("<p>" + JSON.stringify(response) + "</p>");
                          } else {
                          console.log(JSON.stringify(response));   
-                         $("#log").html("<p>" + response + "</p>");                     
+                         $("#log").html("<p>" + JSON.stringify(response) + "</p>");                     
                          console.log('Not logged in');
                          }
                          },
