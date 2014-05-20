@@ -17,7 +17,7 @@
         
 		<script>
 
-
+			datavar = {};
             if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) console.log('Cordova variable does not exist. Check that you have included cordova.js correctly');
             if (typeof CDV == 'undefined') console.log('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
             if (typeof FB == 'undefined') console.log('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
@@ -86,14 +86,19 @@
             function login() {
                 FB.login(
                          function(response) {
+							 
+						 datavar.loginresponse = response;
+						 
                          if (response.session) {
+							 
                          console.log('logged in');
                          console.log(JSON.stringify(response));
-                         $("#log").html("<p>" + JSON.stringify(response) + "</p>");
+                         
                          } else {
-                         console.log(JSON.stringify(response));   
-                         $("#log").html("<p>" + JSON.stringify(response) + "</p>");                     
+							 
+                         console.log(JSON.stringify(response));                       
                          console.log('Not logged in');
+                         
                          }
                          },
                          { scope: "email" }
